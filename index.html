@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="PIBot: asistente educativo para recopilar datos y orientar el análisis de una situación macroeconómica hipotética.">
+  <title>PIBot | Laboratorio de Macroeconomía</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+<main class="app-shell" id="pibotApp">
+  <header class="topbar">
+    <div class="logo">PIB<span>ot_</span></div>
+    <div class="badge">LABORATORIO DE MACROECONOMÍA</div>
+  </header>
+
+  <section class="hero" id="intro">
+    <div>
+      <h1>Piensa como<br><span>economista.</span></h1>
+      <p>
+        Hola, soy PIBot. Te ayudaré a recopilar los datos de una situación
+        económica hipotética para que puedas elaborar <strong>tu propio criterio</strong>.
+        No voy a hacer el análisis por ti: primero reuniremos la evidencia.
+      </p>
+    </div>
+    <div class="visual" aria-hidden="true">
+      <div class="browser">
+        <div class="browser-bar">
+          <span class="dot"></span><span class="dot"></span><span class="dot"></span>
+        </div>
+        <div class="mock-card">
+          <div class="mock-title">PIB REAL</div>
+          <div class="mock-line"></div>
+          <div class="mock-line mid"></div>
+          <div class="mock-line short"></div>
+          <div class="mock-number">ANALIZA</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="panel" id="quizPanel">
+    <div class="progress-wrap">
+      <div class="progress" aria-label="Progreso"><div id="progressBar"></div></div>
+      <div class="progress-text" id="progressText">1 / 13</div>
+    </div>
+
+    <div id="questionArea">
+      <div class="question-label" id="questionNumber">Pregunta 1</div>
+      <h2 class="question" id="questionText"></h2>
+      <p class="help" id="questionHelp"></p>
+
+      <div class="choice-grid" id="choiceGrid">
+        <button class="choice" type="button" data-choice="yes">
+          <strong>Sí, tengo ese dato</strong>
+          <small>Lo introduciré ahora.</small>
+        </button>
+        <button class="choice" type="button" data-choice="no">
+          <strong>No tengo ese dato</strong>
+          <small>PIBot lo marcará como no disponible.</small>
+        </button>
+      </div>
+
+      <div class="input-area" id="inputArea">
+        <div class="input-row">
+          <input class="input" id="valueInput" type="number" inputmode="decimal" step="any" autocomplete="off">
+          <div class="unit" id="unitLabel">unidades</div>
+        </div>
+        <div class="error" id="errorMessage" aria-live="polite"></div>
+      </div>
+
+      <div class="actions">
+        <button class="btn btn-secondary" id="backBtn" type="button">← Atrás</button>
+        <button class="btn btn-primary" id="nextBtn" type="button" disabled>Continuar →</button>
+      </div>
+    </div>
+
+    <section class="results" id="resultsArea">
+      <div class="result-intro">
+        <h2>Tu panorama macroeconómico</h2>
+        <p>
+          Aquí están los datos que recopilaste y algunas observaciones
+          <strong>generales</strong>. Úsalas como punto de partida para construir
+          tu propio análisis.
+        </p>
+      </div>
+
+      <div class="stats" id="stats"></div>
+      <div class="cards" id="analysisCards"></div>
+
+      <div class="result-card" style="margin-top:14px;">
+        <h3>Datos recopilados</h3>
+        <div style="overflow-x:auto;">
+          <table class="data-table">
+            <thead><tr><th>Variable</th><th>Dato</th></tr></thead>
+            <tbody id="dataTableBody"></tbody>
+          </table>
+        </div>
+      </div>
+
+      <p class="footer-note">
+        ⚠️ PIBot es una herramienta educativa. Un indicador aislado no basta para
+        diagnosticar una economía real. La interpretación depende del período,
+        las unidades, la calidad de los datos y el contexto.
+      </p>
+
+      <div class="actions">
+        <span></span>
+        <button class="btn btn-primary" id="restartBtn" type="button">Nueva situación →</button>
+      </div>
+    </section>
+  </section>
+</main>
+<script src="script.js"></script>
+</body>
+</html>
